@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="bg-dark text-white p-3">
+        <div class="container">
+            <h1 class="text-center">Shopping Cart</h1>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <!-- Cart Table -->
+        <div class="table-responsive">
+            <table class="table cart-table">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                  
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Cart Summary -->
+        <div class="row">
+            <div class="col-md-6 offset-md-6">
+                <div class="d-flex justify-content-between">
+                    <span class="cart-total-label">Subtotal:</span>
+                    <span id="cart-subtotal">$0.00</span>
+                </div>
+                <div class="d-flex justify-content-between mt-2">
+                    <span class="cart-total-label">Tax (10%):</span>
+                    <span id="cart-tax">$0.00</span>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between cart-total">
+                    <span>Total:</span>
+                    <span id="cart-total">$0.00</span>
+                </div>
+                <button class="btn btn-success btn-lg w-100 mt-3" id="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Checkout Modal -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="checkoutModalLabel">Checkout</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="checkout-form">
+                        <div class="mb-3">
+                            <label for="customer-name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="customer-name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="customer-address" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="customer-address" placeholder="Enter your address" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="payment-method" class="form-label">Payment Method</label>
+                            <select class="form-select" id="payment-method" required>
+                                <option value="Cash" selected>Cash</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="submit-order-btn">Submit Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 Book Store. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/cartCheckout.js"></script>
+</body>
+</html>
