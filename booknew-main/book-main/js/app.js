@@ -18,9 +18,9 @@ function loadUserName() {
         document.getElementById("user-name-item").style.display = "block";
         document.getElementById("login-link").style.display = "none";
         document.getElementById("register-link").style.display = "none";
-        document.getElementById("account-details-link").style.display = "block";  // Show account details link
-        document.getElementById("order-history-link").style.display = "block";  // Show order history link
-        document.getElementById("logout-item").style.display = "block";  // Show logout link
+        document.getElementById("account-details-link").style.display = "block";  
+        document.getElementById("order-history-link").style.display = "block"; 
+        document.getElementById("logout-item").style.display = "block";  
     }
 }
 
@@ -92,7 +92,7 @@ function showAccountDetails() {
 
     
     let email = loggedInUser.email || 'Not provided';
-    const validEmail = email.split('@').slice(0, 2).join('@'); // Take only the first valid email format
+    const validEmail = email.split('@').slice(0, 2).join('@'); 
     const username = validEmail.includes('@') ? validEmail.split('@')[0] : 'Unknown';
 
     const mainContent = document.querySelector("main");
@@ -124,8 +124,8 @@ function showOrderHistory() {
         ${orders.length === 0 ? '<p class="text-center text-muted">You have no previous orders.</p>' : ''}
         <div class="accordion" id="orderHistoryAccordion">
             ${orders.map((order, index) => {
-                const orderTotal = order.total || 0; // Fallback for missing `total`
-                const paymentMethod = order.paymentMethod ? order.paymentMethod : 'Not provided'; // More specific check
+                const orderTotal = order.total || 0; 
+                const paymentMethod = order.paymentMethod ? order.paymentMethod : 'Not provided'; 
                 return `
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="heading-${index}">
